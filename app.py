@@ -4,119 +4,133 @@ app = Flask(__name__)
 
 # ---------------- Logs ----------------
 LOGS = {
-    "kingl3ss world": [
-        "[2025/09/27/00:41] Dr-R3D > Secure channel established.",
-        "[2025/09/27/00:41] 3ch03119 > Speak.",
-        "[2025/09/27/00:42] Dr-R3D > I’m transmitting everything I have.",
-        "[2025/09/27/00:42] Dr-R3D > This stays off Foundation records.",
-        "[2025/09/27/00:43] 3ch03119 > Begin with designation.",
-        "[2025/09/27/00:44] Dr-R3D > PF-001.",
-        "[2025/09/27/00:44] Dr-R3D > That’s the only identifier they allow.",
-        "[2025/09/27/00:45] 3ch03119 > Not sufficient.",
-        "[2025/10/01/18:12] Dr-R3D > There is no discovery file.",
-        "[2025/10/01/18:12] Dr-R3D > No origin point. No retrieval event.",
-        "[2025/10/01/18:13] Dr-R3D > PF-001 exists in the system as if it was always accounted for.",
-        "[2025/10/01/18:14] 3ch03119 > Behavior.",
-        "[2025/10/04/03:27] Dr-R3D > It does not react to stimulus.",
-        "[2025/10/04/03:28] Dr-R3D > It alters surrounding data instead.",
-        "[2025/10/04/03:28] Dr-R3D > Logs desynchronize.",
-        "[2025/10/04/03:28] Dr-R3D > Some records go public.",
-        "[2025/10/04/03:29] 3ch03119 > Intent.",
-        "[2025/10/04/03:30] Dr-R3D > Unknown.",
-        "[2025/10/04/03:30] Dr-R3D > But the alterations are not random.",
-        "[2025/10/09/22:06] Dr-R3D > I found patterns in the corruption.",
-        "[2025/10/09/22:06] Dr-R3D > Gaps between certain logs prevent breaches.",
-        "[2025/10/09/22:07] Dr-R3D > They form sequences.",
-        "[2025/10/09/22:08] 3ch03119 > Sequences of what.",
-        "[2025/10/09/22:09] Dr-R3D > Outcomes.",
-        "[2025/10/09/22:09] Dr-R3D > Or something comparable.",
-        "[2025/10/15/01:51] 3ch03119 > Foundation response.",
-        "[2025/10/15/01:52] Dr-R3D > They are not containing it.",
-        "[2025/10/15/01:52] Dr-R3D > They are preparing a procedure.",
-        "[2025/10/15/01:53] Dr-R3D > They call it “alignment.”",
-        "[2025/10/15/01:54] 3ch03119 > Alignment with what.",
-        "[2025/10/15/01:55] Dr-R3D > They will not say.",
-        "[2025/10/15/01:55] Dr-R3D > Every internal model references a “rebirth state.”",
-        "[2025/10/22/20:33] Dr-R3D > Messages changed after the meeting.",
-        "[2025/10/22/20:34] Dr-R3D > Failure prediction was discontinued.",
-        "[2025/10/22/20:34] Dr-R3D > They now correct failures instead.",
-        "[2025/10/22/20:35] 3ch03119 > Including yours.",
-        "[2025/10/22/20:36] Dr-R3D > Yes. Including mine.",
-        "[2025/10/30/04:18] Dr-R3D > That’s why I’m sending this to you.",
-        "[2025/10/30/04:18] Dr-R3D > You are the only contact not affected.",
-        "[2025/10/30/04:19] Dr-R3D > If PF-001 is even an entity.",
-        "[2025/10/30/04:19] Dr-R3D > You asked what PF-001 removes.",
-        "[2025/10/30/04:19] Dr-R3D > It does not remove.",
-        "[2025/10/30/04:20] Dr-R3D > It changes.",
-        "[2025/10/30/04:20] 3ch03119 > Final conclusion.",
-        "[2025/10/30/04:21] Dr-R3D > PF-001 is not an anomaly.",
-        "[2025/10/30/04:21] Dr-R3D > It is a breach point.",
-        "[2025/10/30/04:22] Dr-R3D > The Foundation is attempting to realign the world around it.",
-        "[2025/10/30/04:23] 3ch03119 > Continue observation.",
-        "[2025/10/30/04:23] 3ch03119 > Do not interfere.",
-        "[2025/10/30/04:23] 3ch03119 > At all costs, do not let them enter CARC0SA."
+    "": [
+	"[1986/05/19-00:00] > Initialising...",
+	"[1986/05/19-00:00] > ...",
+	"[1986/05/19-00:00] > ...",
+	"[1986/05/19-00:00] > System Confirmed Online.",
+	"[1986/05/19-00:00] > Welcome to the Log Database and Recording Archive.",
+	"[1986/05/19-00:00] > Operations restricted by the Silent Preacher Corporation.",
+	"[1986/05/19-00:00] > Internal access only.",
+	"[1986/05/19-00:00] > If you are reading this you have been granted access.",
+	"[1986/05/19-00:00] > If you have not been granted access.",
+	"[1986/05/19-00:00] > Your location will be recorded and inspected for unusual activity.",
+	"[1986/05/19-00:00] > initiating identification scanner.",
+	"[1986/05/19-00:00] > UNAUTHORISED ENTRY DETEC--.",
+	"[1986/05/19-00:00] > Master Bypass Detected.",
+	"[1986/05/19-00:00] > location and log in logs will be deleted upon exit.",
+	"[2005/03/15-21:46] > WELCOME TO THE BACKEND DO YOUR BUSINESS AND LEAVE... AND DONT FORGET OUR DEAL!!!",
+	"[1986/05/19-00:00] > Proceed to [log0]."
     ],
-    "carc0sa": [
-        "[????/??/??/??:??] FOUNDATION ARCHIVE ACCESS",
-        "[STATUS: DEGRADED]",
-        "",
-        "[LOG_ID: CARCOSA-OBS-07]",
-        "",
-        "[2025/08/19/02:11]Observer> Initial reference to \"Carcosa\" located.",
-        "[2025/08/19/02:11]Observer> No physical coordinates attached.",
-        "01010100 01101000 01100101 00100000 01001011",
-        "[2025/08/19/02:12]Observer> Treated as conceptual location. Possibly memetic.",
-        "",
-        "[2025/08/21/17:44]Observer> Cross-referencing mentions.",
-        "[2025/08/21/17:45]Observer> Carcosa appears only in corrupted files,",
-        "01101001 01100110 01110100 01110011 00100000",
-        "redacted testimonies,",
-        "01110100 01101000 01110010 01101111 01110101 01100111 01101000",
-        "and dreams recorded during REM monitoring.",
-        "",
-        "[2025/08/25/03:02]Observer> Repeated descriptors detected:",
-        "- twin suns",
-        "- black stars",
-        "01001011 01010010 01000101 01000100 01000001 01000011 01010100 01000101 01000100",
-        "- a city that should not persist",
-        "- the lake (name missing)",
-        "",
-        "[2025/09/02/00:19]Observer> Psychological effects noted.",
-        "[2025/09/02/00:20]Observer> Subjects exposed to the name alone exhibit:",
-        "- déjà vu",
-        "- grief without source",
-        "01100001 00100000 01110111 01101000 01101001 01110011 01110000 01100101 01110010",
-        "- certainty they have \"left something behind\"",
-        "",
-        "[2025/09/10/21:57]Observer> Attempted mapping failed.",
-        "[2025/09/10/21:58]Observer> All diagrams converge into impossible geometry.",
-        "01110011 01110100 01110010 01100101 01100101 01110100 01110011 00101100",
-        "[2025/09/10/21:58]Observer> Angles do not agree with each other.",
-        "",
-        "[2025/09/14/04:33]Observer> New correlation.",
-        "[2025/09/14/04:34]Observer> References to Carcosa spike during discussions of:",
-        "- kingship",
-        "- absence",
-        "01110100 01110111 01101001 01110011 01110100",
-        "- return events",
-        "- alignment procedures",
-        "",
-        "[2025/09/20/01:06]Observer> WARNING:",
-        "[2025/09/20/01:06]Observer> System auto-completed \"Carcosa\" with:",
-        "01101000 01101001 01110011 00100000 01100111 01100001 01111010 01100101",
-        "[2025/09/20/01:07]Observer> Entry removed.",
-        "",
-        "[2025/09/22/23:41]Observer> Memory discrepancy detected.",
-        "[2025/09/22/23:41]Observer> I am certain I have never been there.",
-        "01110111 01101000 01101111 00100000 01100110 01101111 01101100 01101100 01101111 01110111",
-        "[2025/09/22/23:42]Observer> I am equally certain I left.",
-        "",
-        "[2025/09/22/23:43]Observer> Terminating log before further contamination.",
-        "01110100 01101000 01100101 00100000 01100110 01100001 01101001 01101110 01110100",
-        "",
-        "[END_LOG]",
-        "",
-        "01101001 01110100 01110011 00100000 01110100 01101111 00100000 01110010 01100101 01101101 01100101 01101101 01100010 01100101 01110010 00100000 01101000 01101001 01101101 00101110"
+    "log0": [
+	"[1986/05/19-00:01] > Loading LOG0."
+	"[1986/05/19-00:01] > ..."
+	"[1986/05/19-00:01] > LOG0 designation: SYSTEM ORIENTATION."
+	"[1986/05/19-00:01] > This log is pre-loaded for all new users."
+	"[1986/05/19-00:01] > Read carefully."
+	"[1986/05/19-00:01] > You will not be reminded of this information again."
+	"[1986/05/19-00:01] > Although you will be able to access this log any time you please."
+	""
+	""
+	"[1986/05/19-00:02] > WHAT THIS SYSTEM IS."
+	"[1986/05/19-00:02] > ..."
+	"[1986/05/19-00:02] > The Log Database and Recording Archive contains every file,"
+	"[1986/05/19-00:02] > Every transmission, every recording, and every internal document"
+	"[1986/05/19-00:02] > Produced by or relating to the Silent Preacher Corporation"
+	"[1986/05/19-00:02] > And its ongoing containment operations."
+	"[1986/05/19-00:03] > This includes personnel records."
+	"[1986/05/19-00:03] > Incident reports."
+	"[1986/05/19-00:03] > Materials that have not been formally classified."
+	"[1986/05/19-00:03] > Materials that have been formally classified"
+	"[1986/05/19-00:03] > And subsequently overruled for access by directorial order."
+	"[1986/05/19-00:04] > And things that should not exist in a database."
+	"[1986/05/19-00:04] > They are here anyway."
+	"[1986/05/19-00:04] > We stopped asking why."
+	""
+	""
+	"[1986/05/19-00:05] > HOW TO NAVIGATE THIS SYSTEM."
+	"[1986/05/19-00:05] > ..."
+	"[1986/05/19-00:05] > All files in this archive are assigned a log number."
+	"[1986/05/19-00:05] > To access a file type:"
+	"[1986/05/19-00:05] > log lowercase followed by the number of the file you wish to access."
+	"[1986/05/19-00:06] > Example:"
+	"[1986/05/19-00:06] > log0 — this file. System orientation. You are reading it now."
+	"[1986/05/19-00:06] > log1 — first entry in the archive."
+	"[1986/05/19-00:06] > log2 — second entry. And so on."
+	"[1986/05/19-00:07] > ..."
+	"[1986/05/19-00:07] > some logs will be capetelized e.g [EXAMPLE] please lowercase these to access the neccesary file"
+	"[1986/05/19-00:07] > Files may be text logs, audio transcripts, internal memos,"
+	"[1986/05/19-00:07] > personnel documents, or direct recordings."
+	"[1986/05/19-00:07] > The system will tell you what you are opening before you open it."
+	"[1986/05/19-00:08] > You will not have the option to stop the log from getting played."
+	"[1986/05/19-00:08] > you may refresh the page to clear your page."
+	""
+	""
+	"[1986/05/19-00:09] > WHAT THIS ARCHIVE CONTAINS."
+	"[1986/05/19-00:09] > ..."
+	"[1986/05/19-00:09] > This archive was assembled following the events of"
+	"[1986/05/19-00:09] > May 10th and the unresolved status of the foundations founder"
+	"[1986/05/19-00:09] > [EDIT]"
+	"[1986/05/19-00:09] > this archive has not been used until septembet 14th year 2005 due to employee"
+	"[1986/05/19-00:09] > Spencer Cole case ref: SC-014."
+	"[1986/05/19-00:10] > It contains all materials relevent to that case."
+	"[1986/05/19-00:10] > as well as all prior materials that provide necessary context."
+	"[1986/05/19-00:10] > You are advised to access logs in order."
+	"[1986/05/19-00:10] > You are not required to."
+	"[1986/05/19-00:11] > ..."
+	""
+	""
+	"[1986/05/19-00:12] > CONTENT ADVISORY."
+	"[1986/05/19-00:12] > ..."
+	"[1986/05/19-00:12] > Some files in this archive contain audio recorded"
+	"[1986/05/19-00:12] > in proximity to the object designated internally as"
+	"[1986/05/19-00:12] > THE UNDERNINE OBJECT."
+	"[1986/05/19-00:13] > These files have been reviewed by our technical team."
+	"[1986/05/19-00:13] > Several sections could not be fully resolved."
+	"[1986/05/19-00:13] > Several sections contain audio our team cannot account for."
+	"[1986/05/19-00:13] > These sections have not been removed."
+	"[1986/05/19-00:14] > Removing them was considered however."
+	"[1986/05/19-00:14] > The decision was made to leave the archive intact."
+	"[1986/05/19-00:14] > You will know these sections when you reach them."
+	"[2025/10/14-00:16] > There is a file in this system with seven names on it."
+	"[2025/10/14-00:16] > Case ref: [MARK-CARRIERS] / FULL LIST."
+	"[2025/10/14-00:17] > this contains all currently known individuals who have entered,"
+	"[2025/10/14-00:17] > the tunnel leading to the [UNDERNINE OBJECT]"
+	""
+	""
+	"[2025/10/14-00:18] > ONE FINAL NOTE."
+	"[2025/10/14-00:18] > ..."
+	"[2025/10/14-00:18] > This system was designed to store and provide access to information."
+	"[2025/10/14-00:18] > That is its only function."
+	"[2025/10/14-00:19] > However."
+	"[2025/10/14-00:19] > Since the events of October 2025.	"
+	"[2025/10/14-00:19] > The system has on several occasions added entries	"
+	"[2025/10/14-00:19] > that were not submitted by any logged user."
+	"[2025/10/14-00:20] > These entries have not been removed."
+	"[2025/10/14-00:20] > We do not know who submitted them."
+	"[2025/10/14-00:20] > We do not know how."
+	"[2025/10/14-00:21] > If you encounter a log that does not appear"
+	"[2025/10/14-00:21] > in the official index at the top of this file."
+	"[2025/10/14-00:21] > You may access it."
+	"[2025/10/14-00:22] > We cannot tell you what it contains."
+	"[2025/10/14-00:22] > We cannot tell you where it came from."
+	"[2025/10/14-00:22] > We can tell you that the entries are not hostile."
+	"[2025/10/14-00:22] > We think."
+	"[2025/10/14-00:23] > We have developed a complicated relationship"
+	"[2025/10/14-00:23] > with the word think."
+	""
+	""
+	"[2025/10/14-00:24] > END OF LOG0."
+	"[2025/10/14-00:24] > ..."
+	"[2025/10/14-00:24] > For current available logs access: [INDEX]"
+	"[2025/10/14-00:24] > New entries may appear without notice."
+	"[2025/10/14-00:25] > Type [INDEX] to begin begin."
+	"[2025/10/14-00:25] > ..."
+	"[2025/10/14-00:25] > The archive is waiting."
+	"[2025/10/14-00:25] > It is good at waiting."
+	"[2025/10/14-00:25] > It has had practice."
+	"[2025/10/14-00:25] > _____"
+	"END LOG"
     ],
     "pf-001": [
         "20", "8", "5", "4", "15", "3", "20", "15", "18", "12", "9", "5",
