@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 # ---------------- Logs ----------------
 LOGS = {
-    ".": [
+    "index": [
 	"[1986/05/19-00:00] > Initialising...",
 	"[1986/05/19-00:00] > ...",
 	"[1986/05/19-00:00] > ...",
@@ -77,7 +77,7 @@ LOGS = {
 	"[1986/05/19-00:10] > as well as all prior materials that provide necessary context.",
 	"[1986/05/19-00:10] > You are advised to access logs in order.",
 	"[1986/05/19-00:10] > You are not required to.",
-	"1986/05/19-00:11] > ...",
+	"[1986/05/19-00:11] > ...",
 	"",
 	"",
 	"[1986/05/19-00:12] > CONTENT ADVISORY.",
