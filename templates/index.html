@@ -91,7 +91,7 @@ async function bootSequence() {
 	
 	await wait(3000);
 	
-    await typeStars(6, 150, 150); // username stars animate randomly
+    await typeStars(5, 150, 150); // username stars animate randomly
 
     await line("Password: ");
 
@@ -116,7 +116,7 @@ async function checkPassword() {
     const value = inputBox.value.trim();
     inputBox.remove(); button.remove();
 
-    if (value === "passw0rd") {
+    if (value === "password") {
         await line("Access granted.");
         sessionStorage.setItem("auth_ok", "true");
         await wait(500);
@@ -132,7 +132,7 @@ async function checkPassword() {
 // ---------------- Terminal ----------------
 function enterTerminal() {
     clearScreen();
-    terminal.textContent = "Phoenix Protocol Console\n> Awaiting input...\n";
+    terminal.textContent = "Welcome To The Backend Console\n> Enter [Index] To Proceed\n";
 
     inputBox = document.createElement("input");
     inputBox.placeholder = "Enter code...";
@@ -153,6 +153,8 @@ async function handleInput() {
     const code = inputBox.value.trim();
     if (!code) return;
     inputBox.value = "";
+    inputBox.disabled = true;
+    button.disabled = true;
     clearScreen();
     terminal.textContent += "> " + code + "\n";
 
@@ -167,6 +169,10 @@ async function handleInput() {
         await line(lineText);
         await wait(400);
     }
+
+    inputBox.disabled = false;
+    button.disabled = false;
+    inputBox.focus();
 }
 
 // ---------------- Start ----------------
