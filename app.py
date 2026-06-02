@@ -145,7 +145,7 @@ def get_log():
     if code in LOGS:
         return jsonify({"success": True, "log": LOGS[code]})
     else:
-        return jsonify({"success": False, "log": ["Unknown code."]})
+        return jsonify({"success": False, "log": ["Unknown Code or Code Classified Try Again Later."]})
 
 import os
 
