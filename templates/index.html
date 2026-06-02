@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Console</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: monospace;
+            padding: 10px;
+            margin: 0;
+        }
+        #output { 
+            white-space: pre-wrap; 
+            min-height: 300px; 
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+        input, button { 
+            box-sizing: border-box;
+            padding: 5px;
+            margin-top: 5px;
+        }
+        input {
+            background: black; 
+            color: lime; 
+            border: 1px solid lime; 
+            width: 100%;
+            font-size: 16px;
+        }
+        button {
+            background: lime; 
+            color: black; 
+            border: none; 
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        @media (min-width: 500px) {
+            input, button {
+                width: 300px; /* Keep desktop width fixed */
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="output"></div>
+
+<script>
+const terminal = document.getElementById("output");
+let inputBox = null;
+let button = null;
+
+// ---------------- Utilities ----------------
+function clearScreen() { terminal.textContent = ""; }
+function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+async function line(text = "", speed = 30) {
+    return new Promise(resolve => {
+        let i = 0;
+        const interval = setInterval(() => {
+            terminal.textContent += text[i] || "";
+            i++;
+            if (i >= text.length) { clearInterval(interval); terminal.textContent += "\n"; resolve(); }
+        }, speed);
+    });
+}
+
+// Animate username as stars with random timing
+async function typeStars(count, baseSpeed = 150, variance = 100) {
+    for (let i = 0; i < count; i++) {
+        terminal.textContent += "*";
+        const delay = baseSpeed + Math.floor(Math.random() * variance);
+        await wait(delay);
+    }
+    terminal.textContent += "\n";
+}
+
+// ---------------- Boot / Auth ----------------
+async function bootSequence() {
+    clearScreen();
+    await line("...");
+    await wait(700);
+    await line("initializing secure interface");
+    await wait(900);
+    await line("authentication required");
+    await wait(900);
+
+    await line("Username: ");
+	
+	await wait(3000);
+	
+    await typeStars(6, 150, 150); // username stars animate randomly
+
+    await line("Password: ");
+
+    // Password input
+    inputBox = document.createElement("input");
+    inputBox.type = "password";
+    inputBox.autocomplete = "off";
+
+    button = document.createElement("button");
+    button.textContent = "Enter";
+
+    document.body.appendChild(document.createElement("br"));
+    document.body.appendChild(inputBox);
+    document.body.appendChild(button);
+
+    inputBox.focus();
+    button.onclick = checkPassword;
+    inputBox.onkeydown = e => { if (e.key === "Enter") checkPassword(); };
+}
+
+async function checkPassword() {
+    const value = inputBox.value.trim();
+    inputBox.remove(); button.remove();
+
+    if (value === "passw0rd") {
+        await line("Access granted.");
+        sessionStorage.setItem("auth_ok", "true");
+        await wait(500);
+        enterTerminal();
+    } else {
+        await line("Access denied.");
+        await wait(1200);
+        sessionStorage.clear();
+        location.reload();
+    }
+}
+
+// ---------------- Terminal ----------------
+function enterTerminal() {
+    clearScreen();
+    terminal.textContent = "Phoenix Protocol Console\n> Awaiting input...\n";
+
+    inputBox = document.createElement("input");
+    inputBox.placeholder = "Enter code...";
+    inputBox.autocomplete = "off";
+
+    button = document.createElement("button");
+    button.textContent = "Run";
+
+    document.body.appendChild(inputBox);
+    document.body.appendChild(button);
+    inputBox.focus();
+
+    button.onclick = handleInput;
+    inputBox.onkeydown = e => { if (e.key === "Enter") handleInput(); };
+}
+
+async function handleInput() {
+    const code = inputBox.value.trim();
+    if (!code) return;
+    inputBox.value = "";
+    clearScreen();
+    terminal.textContent += "> " + code + "\n";
+
+    const response = await fetch("/get_log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code })
+    });
+    const data = await response.json();
+
+    for (const lineText of data.log) {
+        await line(lineText);
+        await wait(400);
+    }
+}
+
+// ---------------- Start ----------------
+if (sessionStorage.getItem("auth_ok") === "true") {
+    enterTerminal();
+} else {
+    bootSequence();
+}
+</script>
+</body>
+</html>
